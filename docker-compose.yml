@@ -1,0 +1,39 @@
+version: "3.8"
+
+services:
+  mysql:
+    image: mysql
+    container_name: mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - ec2
+    volumes:
+      - ec2-app:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: indian-flask
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 60s
+    restart: always
+
+
+  flask:
+    build:
+      context: .
+    container_name: indian-bakery-app
+    ports:
+      - "5000:5000"
+    networks:
+      - ec2
+    restart: always
+    env_file:
+      - ".env"
+networks:
+  ec2:
+volumes:
+  ec2-app:

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="text-center mb-4">Fresh Products</h2>
+
+<div class="row">
+{% for p in products %}
+    <div class="col-md-4 mb-4">
+        <div class="card-dark text-center">
+            <img src="{{ p[3] }}" class="img-fluid mb-3" style="height:200px; object-fit:cover;">
+            <h5>{{ p[1] }}</h5>
+            <p>₹ {{ p[2] }}</p>
+            <a href="/add_to_cart/{{ p[0] }}" class="btn btn-orange">Add to Cart</a>
+        </div>
+    </div>
+{% endfor %}
+</div>
+
+{% endblock %}
+

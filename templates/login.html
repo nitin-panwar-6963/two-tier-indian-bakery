@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-md-5">
+        <div class="card-dark">
+            <h3 class="text-center mb-4">Welcome Back</h3>
+
+            <form method="POST">
+                <input type="email" name="email" class="form-control mb-3" placeholder="Email Address" required>
+                <input type="password" name="password" class="form-control mb-3" placeholder="Password" required>
+
+                <button class="btn btn-orange w-100">Login</button>
+            </form>
+
+            <p class="text-center mt-3">
+                Don't have account? <a href="/register" class="text-warning">Register</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

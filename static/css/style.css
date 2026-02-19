@@ -1,0 +1,256 @@
+/* ===============================
+   GLOBAL DARK SPACE BACKGROUND
+=================================*/
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+    background: radial-gradient(circle at top, #1a0f00, #000000 70%);
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Animated glowing particles */
+body::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(2px 2px at 20% 30%, #ff8c00, transparent),
+                      radial-gradient(2px 2px at 70% 60%, #ff4500, transparent),
+                      radial-gradient(2px 2px at 40% 80%, #ffa500, transparent),
+                      radial-gradient(2px 2px at 90% 20%, #ff6a00, transparent);
+    animation: sparkle 6s linear infinite alternate;
+    z-index: -1;
+    opacity: 0.6;
+}
+
+@keyframes sparkle {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-40px); }
+}
+
+/* ===============================
+   NAVBAR
+=================================*/
+
+.navbar {
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 25px rgba(255, 140, 0, 0.4);
+    padding: 15px 30px;
+}
+
+.navbar-brand {
+    font-size: 26px;
+    font-weight: bold;
+    color: orange !important;
+    text-shadow: 0 0 20px orange;
+    letter-spacing: 2px;
+}
+
+.nav-link {
+    color: #ffffff !important;
+    margin-left: 20px;
+    transition: 0.3s ease;
+}
+
+.nav-link:hover {
+    color: orange !important;
+    text-shadow: 0 0 10px orange;
+}
+
+/* ===============================
+   GLASS CARD DESIGN
+=================================*/
+
+.card-dark {
+    background: rgba(25, 25, 25, 0.85);
+    backdrop-filter: blur(20px);
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: 0 0 35px rgba(255, 140, 0, 0.25);
+    transition: all 0.4s ease;
+}
+
+.card-dark:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 45px rgba(255, 140, 0, 0.5);
+}
+
+/* ===============================
+   BUTTONS
+=================================*/
+
+.btn-orange {
+    background: linear-gradient(45deg, #ff8c00, #ff4500);
+    border: none;
+    border-radius: 40px;
+    padding: 12px 30px;
+    font-weight: 600;
+    color: white;
+    transition: 0.4s ease;
+    box-shadow: 0 0 15px rgba(255, 140, 0, 0.4);
+}
+
+.btn-orange:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 30px #ff8c00;
+}
+
+/* ===============================
+   PRODUCT IMAGE
+=================================*/
+
+.card-dark img {
+    border-radius: 20px;
+    transition: 0.4s ease;
+    box-shadow: 0 0 20px rgba(255, 140, 0, 0.3);
+}
+
+.card-dark img:hover {
+    transform: scale(1.05);
+}
+
+/* ===============================
+   FORMS
+=================================*/
+
+.form-control {
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 15px;
+    color: #fff;
+    padding: 12px;
+}
+
+.form-control:focus {
+    border-color: orange;
+    box-shadow: 0 0 15px orange;
+    background: #111;
+    color: white;
+}
+
+/* ===============================
+   TABLE (ADMIN PANEL)
+=================================*/
+
+.table {
+    color: white;
+}
+
+.table th {
+    color: orange;
+    border-bottom: 1px solid #333;
+}
+
+.table td {
+    border-bottom: 1px solid #222;
+}
+
+.table tr:hover {
+    background: rgba(255, 140, 0, 0.1);
+}
+
+/* ===============================
+   HEADINGS
+=================================*/
+
+h1, h2, h3 {
+    text-shadow: 0 0 20px rgba(255, 140, 0, 0.4);
+}
+
+/* ===============================
+   SUCCESS PAGE
+=================================*/
+
+.text-success {
+    color: #00ffae !important;
+    text-shadow: 0 0 15px #00ffae;
+}
+
+/* ===============================
+   SCROLLBAR
+=================================*/
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(#ff8c00, #ff4500);
+    border-radius: 10px;
+}
+/* FORCE DARK PRODUCT TEXT */
+
+.card-dark h5,
+.card-dark .card-title {
+    color: #ff8c00 !important;   /* Orange product name */
+    font-weight: 600;
+    font-size: 20px;
+    text-shadow: 0 0 10px rgba(255, 140, 0, 0.6);
+}
+
+.card-dark p,
+.card-dark .card-text {
+    color: #ffffff !important;   /* White price */
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/* If still not applying (strong override) */
+h5 {
+    color: #ff8c00 !important;
+}
+
+p {
+    color: #ffffff !important;
+}
+/* HERO SECTION */
+section h1 {
+    color: orange;
+    text-shadow: 0 0 25px orange;
+}
+
+section p {
+    color: #ddd;
+}
+
+/* PRODUCT CARD EXTRA STYLE */
+.product-card {
+    position: relative;
+    overflow: hidden;
+}
+
+/* PRODUCT IMAGE */
+.product-img {
+    border-radius: 20px;
+    height: 220px;
+    object-fit: cover;
+    width: 100%;
+    transition: 0.5s ease;
+}
+
+.product-card:hover .product-img {
+    transform: scale(1.08);
+}
+
+/* PRICE BADGE */
+.price-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: linear-gradient(45deg, #ff8c00, #ff4500);
+    padding: 8px 15px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 14px;
+    box-shadow: 0 0 15px rgba(255, 140, 0, 0.7);
+}
+

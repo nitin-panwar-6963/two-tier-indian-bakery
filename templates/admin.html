@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="text-center mb-4">Admin Panel</h2>
+
+<div class="card-dark mb-4">
+    <form method="POST" action="/admin/add">
+        <input type="text" name="name" placeholder="Product Name" class="form-control mb-2" required>
+        <input type="number" step="0.01" name="price" placeholder="Price" class="form-control mb-2" required>
+        <input type="text" name="image" placeholder="Image URL" class="form-control mb-2" required>
+        <button class="btn btn-orange w-100">Add Product</button>
+    </form>
+</div>
+
+<div class="card-dark">
+    <table class="table table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+
+        {% for p in products %}
+        <tr>
+            <td>{{ p[0] }}</td>
+            <td>{{ p[1] }}</td>
+            <td>₹ {{ p[2] }}</td>
+            <td>
+                <a href="/admin/edit/{{p[0]}}" class="btn btn-warning btn-sm">Edit</a>
+                <a href="/admin/delete/{{p[0]}}" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- HERO SECTION -->
+<section class="text-center py-5">
+    <div class="container">
+        <h1 class="display-4 fw-bold">Welcome to Indian Bakery</h1>
+        <p class="lead text-light mt-3">
+            Freshly baked delights crafted with love & tradition ✨
+        </p>
+    </div>
+</section>
+
+
+<!-- PRODUCTS SECTION -->
+<div class="container pb-5">
+
+    <h2 class="text-center mb-4">🔥 Our Special Items</h2>
+
+    <div class="row">
+
+        {% for product in products %}
+        <div class="col-lg-4 col-md-6 mb-4">
+
+            <div class="card-dark product-card text-center">
+
+                <!-- Image Wrapper -->
+                <div class="position-relative">
+                    <img src="{{ product.image }}" 
+                         alt="{{ product.name }}" 
+                         class="img-fluid product-img">
+
+                    <!-- Price Badge -->
+                    <span class="price-badge">
+                        ₹ {{ product.price }}
+                    </span>
+                </div>
+
+                <!-- Product Name -->
+                <h5 class="mt-4">{{ product.name }}</h5>
+
+                <!-- Add to Cart -->
+                <a href="{{ url_for('add_to_cart', product_id=product.id) }}"
+                   class="btn btn-orange mt-3 w-100">
+                    🛒 Add to Cart
+                </a>
+
+            </div>
+
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+{% endblock %}
+

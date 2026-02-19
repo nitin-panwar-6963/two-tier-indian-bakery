@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="text-center mb-4">Your Shopping Cart</h2>
+
+<div class="card-dark">
+    <table class="table table-dark">
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+
+        {% set total = 0 %}
+        {% for item in items %}
+        <tr>
+            <td>{{ item[1] }}</td>
+            <td>₹ {{ item[2] }}</td>
+        </tr>
+        {% set total = total + item[2] %}
+        {% endfor %}
+    </table>
+
+    <h4 class="text-end">Total: ₹ {{ total }}</h4>
+
+    <a href="/checkout" class="btn btn-orange w-100 mt-3">Proceed to Checkout</a>
+</div>
+
+{% endblock %}
+
