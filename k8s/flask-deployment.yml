@@ -1,0 +1,30 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: flask-dep
+  namespace: devops
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask
+  template:
+    metadata:
+      labels:
+        app: flask
+    spec:
+      containers:
+      - name: flask-container
+        image: nitinpanwar6963/indian-bakery
+        ports:
+        - containerPort: 5000
+        envFrom:
+        - configMapRef:
+            name: flask-config
+        resources:
+          requests:
+            cpu: "50m"
+            memory: "300Mi"
+          limits:
+            cpu: "200m"
+            memory: "700Mi"

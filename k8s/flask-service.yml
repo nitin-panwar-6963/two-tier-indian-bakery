@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: flask-service
+  namespace: devops
+spec:
+  selector: 
+    app: flask
+  ports:
+  - protocol: TCP
+    port: 5000
+    targetPort: 5000
+
